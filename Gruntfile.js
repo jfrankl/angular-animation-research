@@ -1,4 +1,4 @@
-// Generated on 2015-10-24 using generator-angular 0.12.1
+// Generated on 2015-10-25 using generator-angular 0.12.1
 'use strict';
 
 // # Globbing
@@ -50,6 +50,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:server', 'autoprefixer:server']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -351,7 +352,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'nganimationApp',
+          module: 'yosampleApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },

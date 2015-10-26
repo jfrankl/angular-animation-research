@@ -35,13 +35,16 @@
       </div>
     </div>
 
-    <div class="container">
-      <div ng-view=""></div>
+    <div class="sidebar">
+        <div class="switch">
+          <div class="viewport" ui-view></div>
+        </div>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
