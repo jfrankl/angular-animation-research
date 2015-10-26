@@ -44,11 +44,11 @@ img {
   min-height: 20px;
 
   .ng-enter, .ng-leave {
-    transition: all .25s;
+    transition: all .5s;
   }
 
   &.slide {
-    &.forward {
+    &.backward {
       .viewport {
         &.ng-enter {
           left: 100%;
@@ -64,7 +64,7 @@ img {
         }
       }
     }
-    &.backward {
+    &.forward {
       .viewport {
         &.ng-enter {
           left: -100%;
