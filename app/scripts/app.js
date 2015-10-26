@@ -8,13 +8,13 @@ angular
   .controller('SidebarController', ['$scope', '$rootScope', function($scope, $rootScope) {
     function setDirection(order1, order2) {
       if (order1 < order2) {
-        $scope.greeting = 'forward';
+        $scope.direction = 'forward';
       }
       else {
-        $scope.greeting = 'backward';
+        $scope.direction = 'backward';
       }
     }
-    $rootScope.$on("$stateChangeSuccess", function (a, b, c, d, e, f, g) {
+    $rootScope.$on("$stateChangeSuccess", function (a, b, c, d) {
       $scope.animation = b.animation;
       setDirection(b.data, d.data);
     });
