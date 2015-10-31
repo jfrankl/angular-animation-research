@@ -28,26 +28,89 @@ img {
   right: 0;
 }
 
-.switch {
-  position: relative;
+#controller {
+  .sidebar {
+    width: 250px;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #eee;
+    min-height: 20px;
+
+    .ng-enter, .ng-leave {
+      transition: all .5s;
+    }
+
+    &.slide {
+      &.backward {
+        .viewport {
+          &.ng-enter {
+            left: 100%;
+          }
+          &.ng-enter-active.ng-enter {
+            left: 0;
+          }
+          &.ng-leave {
+            left: 0;
+          }
+          &.ng-leave-active.ng-leave {
+            left: -100%;
+          }
+        }
+      }
+      &.forward {
+        .viewport {
+          &.ng-enter {
+            left: -100%;
+          }
+          &.ng-enter-active.ng-enter {
+            left: 0;
+          }
+          &.ng-leave {
+            left: 0;
+          }
+          &.ng-leave-active.ng-leave {
+            left: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .viewport {
+    min-height: 20px;
+    min-width: 20px;
+    position: absolute;
+    width: 250px;
+    display: inline-block;
+    &.ng-enter {
+      opacity: 0;
+    }
+    &.ng-enter-active.ng-enter {
+      opacity: 1;
+    }
+    &.ng-leave {
+      opacity: 1;
+    }
+    &.ng-leave-active.ng-leave {
+      opacity: 0;
+    }
+  }
+
+  .midbar {
+    position: absolute;
+    left: 250px;
+    height: 100%;
+    background-color: #ddd;
+    width: 250px;
+  }
 
 }
 
-.sidebar {
-  width: 500px;
-  left: 0;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  white-space: nowrap;
-  background: #eee;
-  min-height: 20px;
-
-  .ng-enter, .ng-leave {
-    transition: all .5s;
-  }
-
-  &.slide {
+#directive {
+  .slide {
     &.backward {
       .viewport {
         &.ng-enter {
@@ -81,24 +144,127 @@ img {
       }
     }
   }
+  .sidebar {
+    width: 250px;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #eee;
+    min-height: 20px;
+
+    .ng-enter, .ng-leave {
+      transition: all .5s;
+    }
+  }
+
+  .viewport {
+    min-height: 20px;
+    min-width: 20px;
+    position: absolute;
+    width: 250px;
+    display: inline-block;
+    &.ng-enter {
+      opacity: 0;
+    }
+    &.ng-enter-active.ng-enter {
+      opacity: 1;
+    }
+    &.ng-leave {
+      opacity: 1;
+    }
+    &.ng-leave-active.ng-leave {
+      opacity: 0;
+    }
+  }
+
+  .midbar {
+    position: absolute;
+    left: 250px;
+    height: 100%;
+    background-color: #ddd;
+    width: 250px;
+  }
+
 }
 
-.viewport {
-  min-height: 20px;
-  min-width: 20px;
-  position: absolute;
-  width: 500px;
-  display: inline-block;
-  &.ng-enter {
-    opacity: 0;
+#redirective {
+  .slide {
+    &.backward {
+      .viewport {
+        &.ng-enter {
+          left: 100%;
+        }
+        &.ng-enter-active.ng-enter {
+          left: 0;
+        }
+        &.ng-leave {
+          left: 0;
+        }
+        &.ng-leave-active.ng-leave {
+          left: -100%;
+        }
+      }
+    }
+    &.forward {
+      .viewport {
+        &.ng-enter {
+          left: -100%;
+        }
+        &.ng-enter-active.ng-enter {
+          left: 0;
+        }
+        &.ng-leave {
+          left: 0;
+        }
+        &.ng-leave-active.ng-leave {
+          left: 100%;
+        }
+      }
+    }
   }
-  &.ng-enter-active.ng-enter {
-    opacity: 1;
+  .sidebar {
+    width: 250px;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #eee;
+    min-height: 20px;
+
+    .ng-enter, .ng-leave {
+      transition: all .5s;
+    }
   }
-  &.ng-leave {
-    opacity: 1;
+
+  .viewport {
+    min-height: 20px;
+    min-width: 20px;
+    position: absolute;
+    width: 250px;
+    display: inline-block;
+    &.ng-enter {
+      opacity: 0;
+    }
+    &.ng-enter-active.ng-enter {
+      opacity: 1;
+    }
+    &.ng-leave {
+      opacity: 1;
+    }
+    &.ng-leave-active.ng-leave {
+      opacity: 0;
+    }
   }
-  &.ng-leave-active.ng-leave {
-    opacity: 0;
+
+  .rightbar {
+    position: absolute;
+    left: 500px;
+    height: 100%;
+    background-color: #ccc;
+    width: 250px;
   }
+
 }

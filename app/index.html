@@ -35,10 +35,18 @@
       </div>
     </div>
 
-    <div class="sidebar" ng-controller="SidebarController" ng-class="[direction, animation]">
-        <div class="switch">
+    <div id="directive">
+      <div class="midbar sidebar">
+        <div azavea-transition transition-type="slide">
           <div class="viewport" ui-view></div>
         </div>
+      </div>
+    </div>
+
+    <div id="controller">
+      <div class="sidebar" ng-controller="SidebarController" ng-class="[direction, animation]">
+        <div class="viewport" ui-view></div>
+      </div>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->

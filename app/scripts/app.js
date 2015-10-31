@@ -14,11 +14,36 @@ angular
         $scope.direction = 'backward';
       }
     }
-    $rootScope.$on("$stateChangeSuccess", function (a, b, c, d) {
-      $scope.animation = b.animation;
-      setDirection(b.data, d.data);
+    $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
+      $scope.animation = toState.animation;
+      setDirection(toState.data, fromState.data);
     });
   }])
+  .controller('azaveaTransitionCtrl', function($scope, $rootScope) {
+    function setDirection(order1, order2) {
+      if (order1 < order2) {
+        $scope.direction = 'forward';
+      }
+      else {
+        $scope.direction = 'backward';
+      }
+    }
+    $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
+      $scope.animation = $scope.transitionType;
+      setDirection(toState.data, fromState.data);
+    });
+  })
+  .directive('azaveaTransition', function(){
+        return {
+          restrict: 'A',
+          transclude: true,
+          scope: { transitionType:'@', direction:'@' },
+          controller: 'azaveaTransitionCtrl',
+          template: '<ng-transclude ng-class="[direction, animation]"></ng-transclude>',
+          link: function(scope, element, attrs) {
+          }
+        };
+    })
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider
